@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Header from './Header';
+import Footer from './Footer';
 
 export default function DailyPhoto() {
     const [photo, setPhoto] = useState([]);
@@ -19,10 +20,11 @@ export default function DailyPhoto() {
 
     return(
         <div className='photo'>
-            <Header />
-            {/* <h2>{photo.date}</h2> */}
+            <Header date={photo.date}/>
             <img className='dailyImage' alt='space stuff' src={photo.hdurl}/>
+            <h2>{photo.title}</h2>
             <p>{photo.explanation}</p>
+            <Footer />
         </div>
     )
 }
