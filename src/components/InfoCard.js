@@ -1,6 +1,6 @@
 import React from 'react';
 
-const DailyPhotoCard = props => {
+const InfoCard = props => {
     return (
       
     )
