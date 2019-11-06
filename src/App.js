@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 import DailyPhoto from './components/DailyPhoto';
-import "./App.css";
+import './App.css';
 
 function App() {
   return (
