@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Header from './Header';
 import Footer from './Footer';
+import Body from './Body';
 
 export default function DailyPhoto() {
     const [photo, setPhoto] = useState([]);
@@ -20,10 +21,8 @@ export default function DailyPhoto() {
 
     return(
         <div className='photo'>
-            <Header date={photo.date}/>
-            <img className='dailyImage' alt='space stuff' src={photo.hdurl}/>
-            <h2>{photo.title}</h2>
-            <p>{photo.explanation}</p>
+            <Header date={photo.date} title={photo.title} />
+            <Body hdurl={photo.hdurl} explanation={photo.explanation} />
             <Footer />
         </div>
     )
