@@ -1,13 +1,69 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Logo from '../assets/nasa-logo.png';
+import {
+    ButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem, Jumbotron, Collapse,
+    Navbar,
+    NavbarToggler,
+    NavbarBrand,
+    Nav,
+    NavItem,
+    NavLink,
+    UncontrolledDropdown,
+} from 'reactstrap';
 
 const Header = props => {
-    // console.log(props);
+    // const [dropdownOpen, setOpen] = useState(false);
+    // const toggle = () => setOpen(!dropdownOpen);
+    const [isOpen, setIsOpen] = useState(false);
+    const toggle = () => setIsOpen(!isOpen);
+
     return (
         <header>
-            <img className='nasaLogo' alt="logo for NASA" src={Logo}/>
-            <h1>Space Stuff</h1>
-            <h2>{props.date}</h2>
+            <Navbar color="light" light expand="md">
+                <img className='nasaLogo' alt="logo for NASA" src={Logo} />
+                <NavbarBrand>Space Stuff - Photo of the Day</NavbarBrand>
+                <NavbarToggler onClick={toggle} />
+                <Collapse isOpen={isOpen} navbar>
+                    <Nav className="ml-auto" navbar>
+                        <NavItem>
+                            <NavLink>{props.date}</NavLink>
+                        </NavItem>
+                        <UncontrolledDropdown nav inNavbar>
+                            <DropdownToggle nav caret>
+                                More Dates
+                            </DropdownToggle>
+                            <DropdownMenu right>
+                                <DropdownItem>
+                                    Option 1
+                                </DropdownItem>
+                                <DropdownItem>
+                                    Option 2
+                                </DropdownItem>
+                                <DropdownItem divider />
+                                <DropdownItem>
+                                    Reset
+                                </DropdownItem>
+                            </DropdownMenu>
+                        </UncontrolledDropdown>
+                    </Nav>
+                </Collapse>
+            </Navbar>
+            {/* <Jumbotron>
+                <img className='nasaLogo' alt="logo for NASA" src={Logo} />
+                <h1 className="display-3">Space Stuff</h1>
+                <ButtonDropdown isOpen={dropdownOpen} toggle={toggle}>
+                <DropdownToggle caret>
+                    {props.date}
+                </DropdownToggle>
+                <DropdownMenu>
+                    <DropdownItem header>Dates</DropdownItem>
+                    <DropdownItem>Action</DropdownItem>
+                    <DropdownItem>Another Action</DropdownItem>
+                    <DropdownItem divider />
+                    <DropdownItem>More Dates</DropdownItem>
+                </DropdownMenu>
+            </ButtonDropdown>
+            </Jumbotron> */}
         </header>
     )
 }
