@@ -1,8 +1,13 @@
 import React, { useState } from 'react';
 import Logo from '../assets/nasa-logo.png';
+import styled from "styled-components";
 import {
-    DropdownToggle, DropdownMenu, DropdownItem, Jumbotron, Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink, UncontrolledDropdown,
+    DropdownToggle, DropdownMenu, DropdownItem, Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink, UncontrolledDropdown,
 } from 'reactstrap';
+
+const LogoImage = styled.img`
+  width: 20%;
+`
 
 const Header = props => {
     const [isOpen, setIsOpen] = useState(false);
@@ -11,7 +16,7 @@ const Header = props => {
     return (
         <header>
             <Navbar color="light" light expand="md">
-                <img className='nasaLogo' alt="logo for NASA" src={Logo} />
+                <LogoImage alt="logo for NASA" src={Logo} />
                 <NavbarBrand>{props.title}</NavbarBrand>
                 <NavbarToggler onClick={toggle} />
                 <Collapse isOpen={isOpen} navbar>
